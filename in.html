@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+          <style>
+            .navbar{
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 2;
+            }
+            /* Custom CSS for additional styling */
+            .navbar-custom {
+                background-color: #10e6c9; /* Dark background */
+            }
+            .navbar-custom .nav-link {
+                color: #130404; /* White text */
+            }
+            .navbar-custom .nav-link:hover {
+                color: #d4d4d4; /* Light gray text on hover */
+            }
+            body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .welcome-container {
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(135deg,  #10e6c92, #ffffff);
+            color: #272101;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .welcome-text {
+            flex: 1;
+            padding: 20px;
+        }
+        .welcome-text h1 {
+            font-size: 4em;
+            margin-bottom: 0.5em;
+        }
+        .welcome-text p {
+            font-size: 1.5em;
+        }
+        .welcome-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .welcome-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            padding-left: 20px; /* Add padding on the left side */
+            padding-right: 20px; /* Add padding on the right side */
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+        }
+        #intro {
+            background-color: rgba(1, 145, 145, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        #intro p {
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            #intro {
+                padding: 20px;
+            }
+            #intro h2 {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 576px) {
+            #intro h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        #biography {
+            background: linear-gradient(135deg, #c3ecee, #d8dde0); /* Gradient background */
+            color: #0e0d0d; /* Text color */
+            padding: 50px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        
+        }    #biography {
+            background-color: #f8f9fa; /* Light gray background */
+            padding: 50px; /* Add some padding */
+            border-radius: 10px; /* Rounded corners */
+        }
+        #biography h2 {
+            text-align: center; /* Center the heading */
+            margin-bottom: 30px; /* Add some space below the heading */
+            color: #040608; /* Blue color for the heading */
+        }
+        #biography p {
+            font-family: 'Arial', sans-serif;
+            text-align: justify; /* Justify the text */
+            line-height: 1.6; /* Increase line height for better readability */
+            color: #343a40; /* Dark gray color for the text */
+        }
+        @media (max-width: 768px) {
+            #biography {
+                padding: 30px; /* Adjust padding for smaller screens */
+            }
+        }
+        @media (max-width: 576px) {
+            #biography {
+                padding: 20px; /* Further adjust padding for smaller screens */
+            }
+            #biography h2 {
+                font-size: 1.8rem; /* Decrease heading font size for smaller screens */
+            }
+        }
+        #skill {
+            padding: 50px 20px;
+        }
+        #skill p {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            background-color: #07a3a8;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-bottom: 0;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .list-unstyled {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+        @media (max-width: 768px) {
+            #skill {
+                padding: 30px 10px;
+            }
+            #skill p {
+                font-size: 1.2rem;
+            }
+        }
+        @media (max-width: 576px) {
+            #skill {
+                padding: 20px 5px;
+            }
+            #skill p {
+                font-size: 1rem;
+            }
+        }
+
+        #project {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        #project h3 {
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        #project h4 {
+            color: #343a40;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        #project p {
+            color: #495057;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        @media (max-width: 768px) {
+            #project h3, #project h4, #project p {
+                text-align: center;
+            }
+
+        </style>
+    
+          <title>PORTFOLIO</title>
+    </head>
+    <body>
+      
+      
+      <nav class="navbar navbar-expand-lg navbar-custom ">
+        <a class="navbar-brand text-white" href="#">MyPortfolio</a>
+        <button class="navbar-toggler" type="button"   data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#welcome">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#intro">Intro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#biography">Biography</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#pic">Pic</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skill">Skill</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#project">Project</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#experience">experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">education</a>
+          </li>
+          </ul>
+        </div>
+    </nav>               
+ 
+                        
+                        
+                                  
+                                     
+      
+    <div class="welcome-container" id="welcome">
+      <div class="welcome-text">
+          <h1>Welcome to My Portfolio</h1>
+          <p>Hi, I'm GAJJALA NIHARIKA, a passionate front end developer.</p>
+      </div>
+      <div class="welcome-image">
+          <img src="images.jpeg" alt="Software Developer Image">
+      </div>
+  </div> 
+    
+  <div id="intro" class="container"> 
+    <p><h2 style="text-align:center">INTRODUCTION</h2></p>
+<p> HI THERE !</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;  I'M GAJJALA NIHARIKA</p> 
+<P style="font-family: 'Courier New', Courier, monospace text-align:center;"  id =intro>
+         I am currently a third-year student at IIIT RGUKT, pursuing a Bachelor of Technology (BTech) with a specialization in the core branch of Computer Science and Engineering (CSE). My journey at IIIT has been both thrilling and enlightening, offering me numerous opportunities for personal and academic growth. Through rigorous coursework and hands-on projects, I have honed my skills in various areas of computer science, including algorithms, data structures, software engineering, and machine learning. My passion for technology and innovation drives me to continually seek out new challenges and expand my knowledge base. With a current CGPA of 8.6, I am proud of my academic achievements and remain dedicated to excelling in my field. As I continue my education, I look forward to further exploring the vast and dynamic landscape of computer science, striving to make meaningful contributions to the ever-evolving world of technology.                                                                                                                                         
+  </P>
+</div > 
+<br><br>
+  <div class="container" id="biography">
+  <p>
+        <h2  style="text-align:center;">BIOGRAPHY</h2>  </p>
+   <p style="font-family: 'Arial', sans-serif; text-align:center"; >
+     I'm NIHARIKA, a 20-year-old third-year B.Tech student at IIITRGUKT University, my journey in technology started early and has been fueled by a deep passion for coding and innovation.
+     I completed my Intermediate education at IIITRGUKT, where I excelled in Math and Science, securing a 98% aggregate. Prior to that, I graduated from ZPHG School with a 100% in my tenth standard, demonstrating a strong foundation in the core subjects that laid the groundwork for my current pursuits.
+Throughout my academic career at IIT University, I have maintained a 8.6GPA, consistently demostrating academic excellence. I have been recognized on the Dean’s List for three consecutive years 
+Beyond the classroom, I am actively involved in various tech clubs and organizations on campus. <br>As the President of the Coding Club, I lead a team of enthusiastic developers, organizing hackathons, coding boot camps, and workshops. These experiences have honed my leadership, teamwork, and project management skills.
+My professional experience includes a summer internship at Elfinity Tech, where I worked as Frontend developer that improved user engagement by 20%. 
+In my free time, I enjoy working on personal projects and contributing to open-source communities. Some of my notable projects include a transport company  computerization and a stocks registration website, 
+which are available on my GitHub. I am also a passionate gamer and enjoy exploring AI and machine learning algorithms to create intelligent game bots.
+Looking ahead, I am excited about the prospects of specializing in Full Stack Web Developer. My goal is to pursue a master’s degree and eventually work as a software engineer in a leading tech company,
+where I can innovate and solve real-world problems through technology.
+Feel free to explore my portfolio to see my projects, coding tutorials, and blog posts. Let's connect and collaborate on exciting tech ventures!
+</p>
+</div>
+<br><br><br>   
+<div class="container" id="pic">
+   <div class="card mb-3" style="max-width: `1300px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="my image.jpg" class="img-fluid rounded-start" >
+      </div>
+      <div class="col-md-8">
+        '<div class="card-body">
+          <h3 class="card-title">Contact Information</h3>
+          <p class="card-text">
+            <ul>
+                <li>MOBILE NUMBER:934702480</li>
+                <li>EMAIL:niharikagajjala757@gmail.com</li>
+                <li>LINKED IN:<a href="https://www.linkedin.com/in/gajjala-niharika-169754280"> "https://www.linkedin.com/in/gajjala-niharika-169754280"</a></li>
+              </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <br><br>
+  <div class="container" id="skill">
+  <p style="text-align:center ;">SKILLS</p>
+    <div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card">
+        
+        <div class="card-body">
+          <h3 class="card-title">&nbsp;&nbsp;&nbsp;&nbsp;SOFT SKILSS</h3>
+          <br>
+          <ul><li>Communication</li>
+          <li>Problem-Solving</li> 
+           <li>Critical Thinking</li>
+           <li>Emotional Intelligence</li>
+          <li>Time Management</li> 
+           <li>Adaptability</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+   
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"> HARD SKILLS</h3>
+          <br>
+          <ul><li>HTML (HyperText Markup Language)</li>
+         <li>  CSS (Cascading Style Sheets)</li>
+           <li>JavaScript</li>
+          <li>core java</li>
+           <li>SQL</li>
+          <li>REACT js</li> 
+        </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+  
+<div class="container" id="project">
+<h3 style="text-align: center;">PROJECTS</h3><br><br>
+<h4 > TRANSPORT COMPANY COMPUTERIZATION</h4>
+<p>As a front-end developer, I've been instrumental in computerizing transport companies, focusing on modern interfaces. My role includes designing intuitive and visually appealing user interfaces, integrating real-time tracking and interactive mapping features for enhanced logistics operations, and ensuring alignment with business objectives.<br> I prioritize performance optimization and accessibility compliance, resulting in interfaces that are both visually engaging and accessible to all users. I remain committed to continuous learning to drive innovation in transport company computerization.
+    <p><b>technologiesused:</b>java,Html,css,javascript</p>
+    
+    </p>
+
+
+<h4>STOCKS REGISTRATIONS</h4>
+<P>
+    As a dedicated web developer, I possess extensive experience in crafting dynamic and user-centric websites.<br> Proficient in front-end development technologies including HTML, CSS, and JavaScript, I excel in creating visually appealing and responsive interfaces that prioritize usability and accessibility. Leveraging frameworks and libraries such as Bootstrap, jQuery, and React.js,<br> I streamline development processes while ensuring cross-browser compatibility and optimal performance across various devices.<br> My expertise extends to back-end integration, where I seamlessly connect front-end interfaces with back-end systems using RESTful APIs, enabling dynamic functionality and data exchange.<br> With a keen eye for design and a commitment to continuous learning, I am well-equipped to deliver innovative web solutions that exceed client expectations and drive business growth.
+<p><b>technologies used:</b> HTMl ,css,Reactjs,javascript</P>
+
+    </P>
+</div>
+<br><br>
+<div class="container" id="experience">
+<h3 style="text-align: center;">EXPERIENCE</h3>
+i am working as intern at Elifinty Company, I had the invaluable opportunity to gain hands-on experience in various aspects of front end developr.<br> Collaborating closely with experienced professionals, I contributed to  developing software solutions, analyzing market trends, creating marketing campaigns]. This immersive experience allowed me to apply theoretical knowledge gained through coursework to real-world scenarios, honing my [mention relevant skills, e.g., problem-solving abilities, communication skills, technical expertise]. Additionally, I actively participated in team meetings, workshops, and training sessions, <br>further enhancing my understanding of industry best practices and emerging trends. My internship at Elifinty Company was instrumental in shaping my career aspirations and providing me with a solid foundation for future endeavors.
+</div>
+<br><br>
+<div class="container" id="education">
+<h3 style="text-align:center"> EDUCATION</h3>
+<H4>BTECH</H4>
+I am pursuing a B.Tech in Computer Science and Engineering, specializing in web development. I have mastered HTML, CSS, and JavaScript for front-end development and am proficient in back-end languages like Node.js and Python. <br>I have experience with both SQL (MySQL, PostgreSQL) and NoSQL (MongoDB) databases and understand RESTful APIs. My portfolio includes projects ranging from personal websites to complex applications.<br> I continuously improve my skills through online courses and community engagement. I aspire to be a full-stack developer, leveraging my comprehensive skills to create robust web applications.
+<h4>PUC</h4>
+have completed my intermediate education in the MPC (Mathematics, Physics, and Chemistry) 
+<h4>TENTH STANDARD
+</h4>
+ I have completed my tength standard in ZPHS school , secured 10 cgpa 
+</div>
+ 
+ <footer class="bg-dark text-white text-center py-4">
+  <div class="container">
+      <a href="https://www.linkedin.com/in/gajjala-niharika-169754280" target="_blank" class="btn btn-primary d-flex justify-content-center align-items-center">
+          <img src="https://image.flaticon.com/icons/svg/174/174857.svg" alt="" class="mr-2" style="width: 20px; height: 20px;">
+          Connect with me on LinkedIn
+      </a>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Close navbar when a link is clicked
+        $('.navbar-nav>li>a').on('click', function(){
+            $('.navbar-collapse').collapse('hide');
+        });
+    </script>
+
+
+</body>
+    
+</html>
